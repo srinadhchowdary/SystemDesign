@@ -10,6 +10,7 @@ public class Main {
         manualCar.shiftGear();
         manualCar.accelerate(30);
         manualCar.shiftGear(3);
+        manualCar.brake();
         manualCar.stopEngine();
     }
 }

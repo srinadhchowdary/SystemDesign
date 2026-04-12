@@ -59,4 +59,12 @@ public class ManualCar {
             System.out.println(model + " "+ brand + " cannot accelerate. Engine is off.");
         }
     }
+    
+    public void brake() {
+        currentSpeed -= 20;
+        if (currentSpeed < 0) {
+            currentSpeed = 0;
+        }
+        System.out.println(model + " " + brand + "  brake applied " + currentSpeed + " km/h.");
+    }
 }
