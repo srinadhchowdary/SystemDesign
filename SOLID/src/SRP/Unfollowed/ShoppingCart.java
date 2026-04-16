@@ -1,4 +1,4 @@
-package SRP.NotFollowed;
+package SRP.Unfollowed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class ShoppingCart {
         return totalprice;
     }
     
-    //Violation of Single Responsibility Principle
+    //SRP.Violation of Single Responsibility Principle
     // 2. generate invoice for the products in cart
     
     public void printInvoice(){

@@ -1,4 +1,4 @@
-package SRP.NotFollowed;
+package SRP.Unfollowed;
 
 public class SRPViolated {
 
