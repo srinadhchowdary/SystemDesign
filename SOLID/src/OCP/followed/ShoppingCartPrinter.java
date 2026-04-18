@@ -3,7 +3,7 @@ package OCP.followed;
 public class ShoppingCartPrinter {
     
     
-    public ShoppingCart cart;
+    private ShoppingCart cart;
     
     public ShoppingCartPrinter(ShoppingCart cart){
         this.cart = cart;
