@@ -9,7 +9,7 @@ public class NotificationService {
     public static void notify(Order order){
 
         System.out.println("\n Notification: New " + order.getType() + "order placed!");
-        System.out.println("----------------------------");
+        System.out.println("---------------------------------------------");
         System.out.println("Order Id : "+order.getOrderId());
         System.out.println("Customer : "+order.getUser().getName());
         System.out.println("Restaurant : "+order.getRestaurant().getName());

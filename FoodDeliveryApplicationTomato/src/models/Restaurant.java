@@ -11,10 +11,11 @@ public class Restaurant {
     private String location;
     private List<MenuItem> menuItemList;
 
-    public Restaurant(String location, String name) {
+    public Restaurant(String name, String location) {
         this.location = location;
         this.name = name;
         this.restaurantId = ++nextRestaurantId;
+        menuItemList=new ArrayList<>();
     }
     
     public String getName() {
