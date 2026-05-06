@@ -1,0 +1,90 @@
+┌──────────────────────────────────────────────────────────────────────┐
+│                           CLIENT / MAIN                             │
+│----------------------------------------------------------------------│
+│ Creates Notification Object                                          │
+│                                                                      │
+│  INotification notification =                                        │
+│      new SignatureDecorator(                                         │
+│          new TimestampDecorator(                                     │
+│              new SimpleNotification("Payment Success")               │
+│          )                                                           │
+│      );                                                              │
+└──────────────────────────────────────────────────────────────────────┘
+                                │
+                                │ notification object
+                                ▼
+
+┌──────────────────────────────────────────────────────────────────────┐
+│                    NotificationService (Singleton)                  │
+│----------------------------------------------------------------------│
+│ Responsibility:                                                      │
+│  - Central coordinator                                               │
+│  - Receives notification                                             │
+│  - Passes notification to observable                                │
+│                                                                      │
+│ sendNotification(notification)                                       │
+└──────────────────────────────────────────────────────────────────────┘
+                                │
+                                │ observable.setNotification(notification)
+                                ▼
+
+┌──────────────────────────────────────────────────────────────────────┐
+│                    NotificationObservable                           │
+│----------------------------------------------------------------------│
+│ Responsibility:                                                      │
+│  - Stores latest notification                                        │
+│  - Maintains observer list                                           │
+│  - Broadcasts updates                                                │
+│                                                                      │
+│ Stores:                                                              │
+│  notification =                                                      │
+│      "[10:30] Payment Success - Banking Team"                        │
+│                                                                      │
+│ Observers List:                                                      │
+│  [ Logger , NotificationEngine ]                                     │
+└──────────────────────────────────────────────────────────────────────┘
+                                │
+                                │ notifyObservers()
+                                │
+                ┌───────────────┴────────────────┐
+                │                                │
+                ▼                                ▼
+
+┌──────────────────────────────┐     ┌──────────────────────────────┐
+│          Logger              │     │     NotificationEngine       │
+│------------------------------│     │------------------------------│
+│ Observer receives update()   │     │ Observer receives update()   │
+│                              │     │                              │
+│ Logs notification            │     │ Gets notification content    │
+│                              │     │                              │
+│ OUTPUT:                      │     │ "[10:30] Payment Success"    │
+│ LOG : Payment Success        │     │                              │
+└──────────────────────────────┘     └──────────────────────────────┘
+                                                  │
+                                                  │ loops through strategies
+                                                  ▼
+
+                   ┌────────────────────────────────────────────┐
+                   │     List<INotificationStrategy>            │
+                   │--------------------------------------------│
+                   │  [                                       ] │
+                   │                                            │
+                   │   EmailStrategy object                     │
+                   │   SmsStrategy object                       │
+                   │   PopupStrategy object                     │
+                   └────────────────────────────────────────────┘
+                                                  │
+                 ┌────────────────────────────────┼──────────────────────────────┐
+                 │                                │                              │
+                 ▼                                ▼                              ▼
+
+┌────────────────────────┐   ┌────────────────────────┐   ┌────────────────────────┐
+│     EmailStrategy      │   │      SmsStrategy       │   │    PopupStrategy       │
+│------------------------│   │------------------------│   │------------------------│
+│ sendNotification()     │   │ sendNotification()     │   │ sendNotification()     │
+│                        │   │                        │   │                        │
+│ Sends EMAIL            │   │ Sends SMS              │   │ Shows POPUP            │
+│                        │   │                        │   │                        │
+│ "[10:30] Payment       │   │ "[10:30] Payment       │   │ "[10:30] Payment       │
+│ Success"               │   │ Success"               │   │ Success"               │
+└────────────────────────┘   └────────────────────────┘   └────────────────────────┘
