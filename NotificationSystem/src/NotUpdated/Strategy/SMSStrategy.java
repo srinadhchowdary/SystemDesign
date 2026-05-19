@@ -1,4 +1,4 @@
-package Strategy;
+package NotUpdated.Strategy;
 
 public class SMSStrategy implements INotificationStrategy{
     

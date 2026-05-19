@@ -1,4 +1,4 @@
-package Observer;
+package NotUpdated.Observer;
 
 public class Logger implements IObserver{
     

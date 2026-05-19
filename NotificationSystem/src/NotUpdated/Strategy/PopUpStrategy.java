@@ -1,4 +1,4 @@
-package Strategy;
+package NotUpdated.Strategy;
 
 public class PopUpStrategy implements INotificationStrategy{
     

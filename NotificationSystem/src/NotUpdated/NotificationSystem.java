@@ -1,14 +1,16 @@
-import Decorator.INotification;
-import Decorator.SignatureDecorator;
-import Decorator.SimpleNotification;
-import Decorator.TimeStampDecorator;
-import Observer.Logger;
-import Observer.NotificationEngine;
-import Observer.NotificationObservable;
-import Service.NotificationService;
-import Strategy.EmailStrategy;
-import Strategy.PopUpStrategy;
-import Strategy.SMSStrategy;
+package NotUpdated;
+
+import NotUpdated.Decorator.INotification;
+import NotUpdated.Decorator.SignatureDecorator;
+import NotUpdated.Decorator.SimpleNotification;
+import NotUpdated.Decorator.TimeStampDecorator;
+import NotUpdated.Observer.Logger;
+import NotUpdated.Observer.NotificationEngine;
+import NotUpdated.Observer.NotificationObservable;
+import NotUpdated.Service.NotificationService;
+import NotUpdated.Strategy.EmailStrategy;
+import NotUpdated.Strategy.PopUpStrategy;
+import NotUpdated.Strategy.SMSStrategy;
 
 public class NotificationSystem {
     public static void main(String[] args) {
@@ -19,7 +21,7 @@ public class NotificationSystem {
         // Get Observable
         NotificationObservable notificationObservable = notificationService.getObservable();
 
-        // Create Logger Observer
+        // Create Logger NotUpdated.Observer
         Logger logger = new Logger(notificationObservable);
 
         NotificationEngine notificationEngine = new NotificationEngine(notificationObservable);

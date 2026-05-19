@@ -1,4 +1,4 @@
-package Decorator;
+package NotUpdated.Decorator;
 
 public class SimpleNotification implements INotification{
     

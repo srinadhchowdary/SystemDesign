@@ -53,7 +53,7 @@
 ┌──────────────────────────────┐     ┌──────────────────────────────┐
 │          Logger              │     │     NotificationEngine       │
 │------------------------------│     │------------------------------│
-│ Observer receives update()   │     │ Observer receives update()   │
+│ NotUpdated.Observer receives update()   │     │ NotUpdated.Observer receives update()   │
 │                              │     │                              │
 │ Logs notification            │     │ Gets notification content    │
 │                              │     │                              │

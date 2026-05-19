@@ -1,7 +1,7 @@
-package Service;
+package NotUpdated.Service;
 
-import Decorator.INotification;
-import Observer.NotificationObservable;
+import NotUpdated.Decorator.INotification;
+import NotUpdated.Observer.NotificationObservable;
 import java.util.*;
 
 public class NotificationService {

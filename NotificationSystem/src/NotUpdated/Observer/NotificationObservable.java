@@ -1,6 +1,6 @@
-package Observer;
+package NotUpdated.Observer;
 
-import Decorator.INotification;
+import NotUpdated.Decorator.INotification;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package Decorator;
+package NotUpdated.Decorator;
 
 public interface INotification {
     
