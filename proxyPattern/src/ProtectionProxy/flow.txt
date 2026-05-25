@@ -1,0 +1,55 @@
+                    ┌──────────────────────┐
+                    │        CLIENT        │
+                    │  (main method)       │
+                    └──────────┬───────────┘
+                               │
+                               │ creates
+                               ▼
+                    ┌──────────────────────┐
+                    │        User          │
+                    │ name = "Rohan"       │
+                    │ premium = false      │
+                    └──────────┬───────────┘
+                               │
+                               │ passed into constructor
+                               ▼
+                 ┌─────────────────────────────┐
+                 │       DocumentProxy         │
+                 │ implements IDocumentReader  │
+                 │                             │
+                 │ user = Rohan               │
+                 │ realReader =               │
+                 │   new RealDocumentReader() │
+                 └──────────┬──────────────────┘
+                            │
+                            │ client calls
+                            ▼
+                unlockPDF("file.pdf","123")
+                            │
+                            ▼
+                ┌────────────────────────┐
+                │   DocumentProxy        │
+                │ permission check       │
+                │                        │
+                │ if(!premium)           │
+                └──────────┬─────────────┘
+                           │
+                ┌──────────┴──────────┐
+                │                     │
+                │ NO                  │ YES
+                │                     │
+                ▼                     ▼
+
+   ┌──────────────────────┐   ┌────────────────────────┐
+   │ ACCESS DENIED        │   │ Forward request to     │
+   │ return immediately   │   │ RealDocumentReader     │
+   └──────────────────────┘   └──────────┬─────────────┘
+                                         │
+                                         ▼
+                          ┌──────────────────────────┐
+                          │   RealDocumentReader     │
+                          │ unlockPDF()              │
+                          │                          │
+                          │ Unlock PDF               │
+                          │ Display content          │
+                          └──────────────────────────┘
