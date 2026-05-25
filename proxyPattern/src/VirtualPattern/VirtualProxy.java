@@ -1,3 +1,5 @@
+package VirtualPattern;
+
 public class VirtualProxy {
     public static void main(String[] args) {
         

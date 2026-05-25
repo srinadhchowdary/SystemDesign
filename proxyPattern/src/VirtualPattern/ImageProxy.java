@@ -1,3 +1,5 @@
+package VirtualPattern;
+
 public class ImageProxy implements IImage{
     
     private RealImage realImage;
